@@ -1,0 +1,239 @@
+@import url("https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Roboto Mono", monospace;
+  margin: 0px;
+}
+
+p {
+  font-family: "Oxygen", sans-serif;
+}
+
+h1.showcase-header {
+  font-size: 122px;
+}
+
+div.line {
+  border-color: blue;
+  border-style: solid;
+}
+div.line.small {
+  width: 33.3%;
+}
+div.line.medium {
+  width: 66.6%;
+}
+div.line.large {
+  width: 100%;
+}
+div.line.thin {
+  border-width: 2px;
+}
+div.line.thick {
+  border-width: 4px;
+}
+div.line.thickest {
+  border-width: 6px;
+}
+
+html,
+body,
+main {
+  width: 100%;
+  height: 400vh;
+  margin: 0px;
+}
+
+:root {
+  --mouse-x: 0px;
+  --mouse-y: 0px;
+  --mouse-x-pct: 0%;
+  --mouse-y-pct: 0%;
+  --mouse-xmid: 0px;
+  --mouse-ymid: 0px;
+  --mouse-xmid-pct: 0%;
+  --mouse-ymid-pct: 0%;
+  --mouse-xdeg: 0deg;
+  --mouse-ydeg: 0deg;
+  --mouse-xmiddeg: 0deg;
+  --mouse-ymiddeg: 0deg;
+  --window-scroll-px: 0px;
+}
+
+div.showcase {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+div.showcase-overlay {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  padding: 75px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  z-index: 10;
+}
+div.showcase-overlay.second {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  opacity: calc(var(--window-scroll-px) / 200vh * 1);
+}
+div.showcase-overlay.second div.about-box {
+  position: relative;
+  width: 100%;
+  height: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+div.view-scene {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  -webkit-perspective: 1000px;
+          perspective: 1000px;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-transform: perspective(2000px) translateZ(calc(var(--scroll-px)));
+          transform: perspective(2000px) translateZ(calc(var(--scroll-px)));
+}
+.scene-data {
+  --scroll-px: 0px;
+  --scroll-digit: 0;
+  --scroll-pct: 0%;
+  --scroll-rel-digit: 0;
+}
+
+div.rectangle {
+  position: absolute;
+  top: calc(50% - 37.5%);
+  left: calc(50% - 37.5%);
+  width: 75%;
+  height: 75%;
+  border: 100px solid black;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-transform: rotateX(calc(var(--mouse-ymiddeg) / -24)) rotateY(calc(var(--mouse-xmiddeg) / 48));
+          transform: rotateX(calc(var(--mouse-ymiddeg) / -24)) rotateY(calc(var(--mouse-xmiddeg) / 48));
+  -webkit-transition-duration: 1s;
+          transition-duration: 1s;
+  -webkit-transition-timing-function: cubic-bezier(0, 0.56, 0.954, 1);
+          transition-timing-function: cubic-bezier(0, 0.56, 0.954, 1);
+}
+div.rectangle div.rectangle-scene {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-perspective: 2000px;
+          perspective: 2000px;
+}
+div.rectangle div.rectangle-scene div.test-element {
+  position: absolute;
+  top: calc(50% - 50%);
+  left: calc(50% - 50%);
+  width: 100%;
+  height: 100%;
+  -webkit-transform: translateZ(calc(-25vh - var(--scroll-px)));
+          transform: translateZ(calc(-25vh - var(--scroll-px)));
+  background-image: url("../img/test.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: calc(25% + var(--scroll-pct));
+}
+div.rectangle div.rectangle-scene div.test-text {
+  position: absolute;
+  bottom: 50px;
+  left: calc(50% - 50%);
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transform: translateZ(calc(-20vh + var(--scroll-px))) scale(var(--scroll-digit));
+          transform: translateZ(calc(-20vh + var(--scroll-px))) scale(var(--scroll-digit));
+}
+div.rectangle div.rectangle-scene div.test-text h1 {
+  font-size: 78px;
+}
+div.rectangle div.rectangle-scene div.inner-rectangle {
+  position: absolute;
+  background-color: blue;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+}
+div.rectangle div.rectangle-scene div.inner-rectangle.top, div.rectangle div.rectangle-scene div.inner-rectangle.bottom {
+  width: 100%;
+  height: 50vh;
+}
+div.rectangle div.rectangle-scene div.inner-rectangle.left, div.rectangle div.rectangle-scene div.inner-rectangle.right {
+  width: 50vh;
+  height: 100%;
+}
+div.rectangle div.rectangle-scene div.inner-rectangle.top {
+  bottom: calc(calc(-50vh / 2) + 0vh);
+  left: calc(50% - 50%);
+  background-color: red;
+  -webkit-transform: translateZ(-25vh) rotateX(-90deg);
+          transform: translateZ(-25vh) rotateX(-90deg);
+}
+div.rectangle div.rectangle-scene div.inner-rectangle.bottom {
+  top: calc(calc(-50vh / 2) + 0vh);
+  left: calc(50% - 50%);
+  background-color: blue;
+  --scroll-px: 0px;
+  -webkit-transform: translateZ(calc(-25vh - var(--scroll-px))) rotateX(-90deg);
+          transform: translateZ(calc(-25vh - var(--scroll-px))) rotateX(-90deg);
+}
+div.rectangle div.rectangle-scene div.inner-rectangle.left {
+  left: calc(calc(-50vh / 2) + 0vh);
+  top: calc(50% - 50%);
+  background-color: green;
+  --scroll-px: 0px;
+  -webkit-transform: translateZ(calc(-25vh + var(--scroll-px))) rotateX(-90deg) rotateY(-90deg) rotateZ(-90deg);
+          transform: translateZ(calc(-25vh + var(--scroll-px))) rotateX(-90deg) rotateY(-90deg) rotateZ(-90deg);
+}
+div.rectangle div.rectangle-scene div.inner-rectangle.right {
+  right: calc(calc(-50vh / 2) + 0vh);
+  top: calc(50% - 50%);
+  background-color: violet;
+  -webkit-transform: translateZ(-25vh) rotateX(-90deg) rotateY(-90deg) rotateZ(-90deg);
+          transform: translateZ(-25vh) rotateX(-90deg) rotateY(-90deg) rotateZ(-90deg);
+}
